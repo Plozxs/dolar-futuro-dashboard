@@ -85,12 +85,6 @@ export function Header({ conn }: { conn: ConnectionState }) {
               </span>
               <ConnectionBadge status={conn.status} />
             </div>
-            <p className="text-[11px] leading-tight text-ink-faint sm:text-right">
-              Fuente: {settings.deskName} · Datos indicativos
-            </p>
-            <p className="text-[11px] leading-tight text-ink-faint sm:text-right">
-              Solo para uso informativo · No constituye recomendación de inversión
-            </p>
           </div>
         </div>
 
