@@ -95,7 +95,19 @@ function LoadingState() {
   );
 }
 
+/** Lun–Vie 10:00–17:00 ART (UTC-3). */
+function isMarketOpen(): boolean {
+  const now = new Date();
+  const art = new Date(now.toLocaleString("en-US", { timeZone: "America/Argentina/Buenos_Aires" }));
+  const day = art.getDay(); // 0=Dom, 6=Sáb
+  const h = art.getHours();
+  const m = art.getMinutes();
+  const time = h * 60 + m;
+  return day >= 1 && day <= 5 && time >= 10 * 60 && time < 17 * 60;
+}
+
 function Footer({ source }: { source: "backend" | "simulated" }) {
+  const open = isMarketOpen();
   return (
     <footer className="mt-4 border-t border-[#1c2c5c] bg-[linear-gradient(180deg,#0a1430_0%,#0c1838_100%)]">
       <div className="mx-auto flex w-full max-w-[1840px] flex-col gap-1 px-4 py-4 text-[11px] text-ink-faint sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
@@ -103,6 +115,11 @@ function Footer({ source }: { source: "backend" | "simulated" }) {
           Monitor Dólar Futuro · Fuente:{" "}
           {source === "backend" ? "PyRofex (A3 Mercados)" : "Feed simulado · demo"} · Datos
           indicativos · Solo para uso informativo.
+          {!open && (
+            <span className="ml-2 rounded bg-amber-500/10 px-1.5 py-0.5 text-amber-400">
+              Mercado cerrado · datos del último cierre
+            </span>
+          )}
         </span>
         <span>No constituye recomendación de inversión · Next.js + TypeScript</span>
       </div>
