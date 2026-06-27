@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import { Activity } from "lucide-react";
 import { useState } from "react";
 import { ConnectionBadge } from "./ConnectionBadge";
 import { useClock } from "@/hooks/useClock";
@@ -60,7 +59,13 @@ export function Header({ conn }: { conn: ConnectionState }) {
           {/* Marca + titulo + fecha */}
           <div className="flex items-center gap-3.5">
             <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-brand to-sky-deep shadow-glow">
-              <Activity className="h-6 w-6 text-white" strokeWidth={2.4} />
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-7 w-7">
+                <text x="50%" y="50%" dominantBaseline="central" textAnchor="middle"
+                  fill="white" fontSize="22" fontWeight="700" fontFamily="ui-monospace,monospace"
+                  letterSpacing="-1">$</text>
+                <line x1="16" y1="4" x2="16" y2="8" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                <line x1="16" y1="24" x2="16" y2="28" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+              </svg>
             </div>
             <div>
               <h1 className="text-xl font-bold leading-tight tracking-tight text-white sm:text-2xl">
