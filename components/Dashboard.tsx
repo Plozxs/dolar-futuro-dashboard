@@ -113,10 +113,9 @@ function Footer({ source }: { source: "backend" | "simulated" }) {
       <div className="mx-auto flex w-full max-w-[1840px] flex-col gap-1 px-4 py-4 text-[11px] text-ink-faint sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <span>
           Monitor Dólar Futuro · Fuente:{" "}
-          {source === "backend" ? "PyRofex (A3 Mercados)" : "Feed simulado · demo"} · Datos
-          indicativos · Solo para uso informativo.
+          {source === "backend" ? "PyRofex (A3 Mercados)" : "Feed simulado · demo"}
         </span>
-        <span>No constituye recomendación de inversión · Next.js + TypeScript</span>
+        <span>Next.js + TypeScript</span>
       </div>
     </footer>
   );
