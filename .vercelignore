@@ -1,0 +1,4 @@
+# El backend Python no se despliega en Vercel (corre como servicio aparte).
+backend/
+*.py
+__pycache__/
