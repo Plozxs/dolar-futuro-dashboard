@@ -115,11 +115,6 @@ function Footer({ source }: { source: "backend" | "simulated" }) {
           Monitor Dólar Futuro · Fuente:{" "}
           {source === "backend" ? "PyRofex (A3 Mercados)" : "Feed simulado · demo"} · Datos
           indicativos · Solo para uso informativo.
-          {!open && (
-            <span className="ml-2 rounded bg-amber-500/10 px-1.5 py-0.5 text-amber-400">
-              Mercado cerrado · datos del último cierre
-            </span>
-          )}
         </span>
         <span>No constituye recomendación de inversión · Next.js + TypeScript</span>
       </div>
