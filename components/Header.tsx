@@ -83,7 +83,7 @@ export function Header({ conn }: { conn: ConnectionState }) {
               <span className="tnum text-xs font-medium text-ink-muted">
                 {now != null ? fmtTime(now) : "--:--:--"} · ART
               </span>
-              <ConnectionBadge status={conn.status} />
+              <ConnectionBadge status={conn.status} source={conn.source} />
             </div>
           </div>
         </div>

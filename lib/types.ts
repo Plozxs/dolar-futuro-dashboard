@@ -7,7 +7,7 @@
  * - `MarketSnapshot`  -> frame ya enriquecido, listo para la UI.
  */
 
-export type DataSource = "backend" | "simulated";
+export type DataSource = "backend" | "simulated" | "closing";
 
 export type PriceDirection = 1 | -1 | 0;
 

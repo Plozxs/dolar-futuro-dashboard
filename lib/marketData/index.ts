@@ -9,7 +9,9 @@
  */
 
 import { settings } from "@/config/settings";
+import { isMarketOpen } from "@/lib/marketHours";
 import { BackendFeed } from "./backendFeed";
+import { ClosingDataFeed } from "./closingDataFeed";
 import { BaseProvider, type MarketDataProvider } from "./provider";
 import { SimulatedFeed } from "./simulatedFeed";
 
@@ -55,6 +57,9 @@ class ResilientProvider extends BaseProvider {
 }
 
 export function createProvider(): MarketDataProvider {
+  if (!isMarketOpen()) {
+    return new ClosingDataFeed();
+  }
   switch (settings.dataMode) {
     case "simulated":
       return new SimulatedFeed();
